@@ -1,27 +1,77 @@
-# TAL
+# Monthly Premium Calculator - TAL TEST
+
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
+
+## General info
+This is the TAL Test project to have the ability to choose various options on the screen so that I can view the monthly premiums calculated (based on the custom logic) and displayed on the screen based on Name,Date of Birth,,Occupation and Sum Insured.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
+	
+## Technologies
+Project is created with:
+* Angular : 15.2.1
+* Node : v18.14.2
+* Npm : 9.1.1
+* Bootstrap : 5.2.3
+* VS Code : 1.74.3
+	
+## Setup
+To run this project, install it locally using npm:
 
-## Development server
+```
+    1. Node and NPM
+	
+        Node is required by the Angular CLI. You can download from the official node website for your system
 
+        We can check node and npm versions after installation using the below commands:
+            node --version
+            npm --version
+
+	2. Angular CLI
+        Install the latest version of Angular CLI using the below command :
+        npm install -g @angular/cli
+```
+
+## Run application in local
+```
+Run `npm install` to prepare your environment
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```
+## Prod Build
+```
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
 
-## Code scaffolding
+## Application deployed in Azure for DEMO
+```
+https://tal-app.azurewebsites.net/
+```
+## Application Purpose
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+As a User, I would like to have the ability to choose various options on the screen so that I can view the monthly premiums calculated (based on the custom logic) and displayed on the screen based on Name,Date of Birth,,Occupation and Sum Insured.
 
-## Build
+Develop a UI that accepts the below data and returns a monthly premium amount to be calculated.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Assumptions
 
-## Running unit tests
+* Age will be calcualted based on Date of Birth change and will be displayed in screen
+* Date of Birth is restricted to max 70 years age
+* All fields are mandatory
+* Monthly Premium will be calculated once all mandatory fields are entered
+* Based on Occupation change, monthly premium will be calculated
+* Reset feature to go original state of the application so that user can enter fresh inputs based on need
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Highlights
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* Application created with latest angular version 15.x
+* Bootstrap 5.2.1 for responsive design
+* Ngx-Boostrap 10.2.0 version for Date Picker component
+* Followed Angular's clean architecture with Service, Components, Routing, and Global/Local CSS
+* Written business logic or validations in Premium Service
+* Angular components & Html views are well maintained with UI/UX practices
+* Utilized CSS/SCSS well with reusability features and didn't have any inline-styles
+* Handled validations and uniform look & feel across the application
+* Deployed application in Azure for the DEMO purpose
