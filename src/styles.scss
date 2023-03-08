@@ -1,1 +1,91 @@
-/* You can add global styles to this file, and also import other style files */
+.box.box-primary {
+    border-top-color: #00467d !important;
+  }
+  
+  .box-header.with-border {
+    border-bottom: 2px solid #dbdbe1 !important;
+  }
+  
+  .box-header .box-title {
+    display: inline-block;
+    font-size: 18px !important;
+    margin: 0;
+    line-height: 1;
+    font-style: italic;
+  }
+  
+  .box {
+    position: relative;
+    border-radius: 3px !important;
+    background: #ffffff;
+    border-top: 3px solid #d2d6de !important;
+    margin-bottom: 10px;
+    width: 100%;
+    box-shadow: 0px 1px 1px 1px #ccc !important;
+  }
+  
+  .box-header {
+    color: #444 !important;
+    display: block !important;
+    padding: 6px !important;
+    position: relative;
+  }
+  
+  .box-body {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 3px !important;
+    border-bottom-left-radius: 3px !important;
+    padding: 10px !important;
+  }
+  
+  .row {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  .float-right {
+    float: right;
+  }
+  
+  .badge-primary {
+    background-color: #204d74 !important;
+    border-color: #122b40 !important;
+  }
+  
+  .badge-secondary {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+  }
+  
+  .badge-tertiary {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+  }
+  
+  .requiredFields {
+    color: red;
+    font-weight: 600;
+  }
+  
+  .valid {
+    border-left: 5px solid darkgreen !important;
+    border-color: #006400 !important;
+  }
+  
+  .invalid {
+    border-left: 5px solid darkred !important;
+    border-color: darkred !important;
+  }
+  
+  .invalid-message {
+    color: red;
+  }
+  
+  .control-label {
+    margin-bottom: 5px;
+  }
+  
