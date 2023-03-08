@@ -4,6 +4,12 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
+* [Run application in local](#run-application-in-local)
+* [Prod Build](#prod-build)
+* [Application deployed in Azure for DEMO](#application-deployed-in-azure-for-demo)
+* [Application Purpose](#application-purpose)
+* [Assumptions](#assumptions)
+* [Highlights](#highlights)
 
 ## General info
 This is the TAL Test project to have the ability to choose various options on the screen so that I can view the monthly premiums calculated (based on the custom logic) and displayed on the screen based on Name,Date of Birth,,Occupation and Sum Insured.
