@@ -8,6 +8,11 @@
 
 .angular/
 
+bin/
+obj/
+.suo
+*.config
+
 # Node
 /node_modules
 npm-debug.log
