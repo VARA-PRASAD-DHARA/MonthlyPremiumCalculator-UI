@@ -1,37 +1,15 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { BaseService } from './base.service';
+import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class PremiumService {
+@Injectable({ providedIn: 'root' })
+export class PremiumService extends BaseService {
 
-  //store will have all required inforamation for the application
-  premiumDataStore: any = {};
+  constructor(private http: HttpClient) { super(); }
 
-  constructor() { }
-
-  getOccupationInfo() {
-    //update store with latest inforamation (from api) so that subscribers will get updated info
-    this.premiumDataStore.occupationInfo = [
-      { rating: "0", occupation: "Select" },
-      { rating: "Light Manual", occupation: "Cleaner" },
-      { rating: "Professional", occupation: "Doctor" },
-      { rating: "White Collar", occupation: "Author" },
-      { rating: "Heavy Manual", occupation: "Farmer" },
-      { rating: "Heavy Manual", occupation: "Mechanic" },
-      { rating: "Light Manual", occupation: "Florist" }
-    ];
-    return this.premiumDataStore.occupationInfo; //dispatch required information to subscriber (observer in real-time scenario)
-  }
-
-  getRatingFactorInfo() {
-    this.premiumDataStore.ratingFactorInfo = [
-      { rating: "Professional", factor: "1.0" },
-      { rating: "White Collar", factor: "1.25" },
-      { rating: "Light Manual", factor: "1.50" },
-      { rating: "Heavy Manual", factor: "1.75" }
-    ];
-    return this.premiumDataStore.ratingFactorInfo;
+  getOccupationFactorInfo(): Observable<any> {
+    return this.http.get<any>(`${this.apiBaseUri}${this.occupationFactorApi}`);
   }
 
   //calculate age in years, months and days
@@ -57,14 +35,14 @@ export class PremiumService {
   }
 
   isMonthlyPremiumFormValid(monthlyPremiumInfo: any) {
-    return monthlyPremiumInfo.name != "" && this.hasValue(monthlyPremiumInfo.dateOfBirthValue) && monthlyPremiumInfo.occupationRatingFactor != "0" && monthlyPremiumInfo.sumInsured != "";
+    return monthlyPremiumInfo.name != "" && this.hasValue(monthlyPremiumInfo.dateOfBirthValue) && monthlyPremiumInfo.occupationRatingFactor != "Select" && monthlyPremiumInfo.sumInsured != "";
   }
 
-  calculateMonthlyPremium(monthlyPremiumInfo: any) {
-    let premiumamount = +monthlyPremiumInfo.sumInsured * parseFloat(monthlyPremiumInfo.occupationRatingFactor) * +monthlyPremiumInfo.ageInYears;
-    let deathPremium = ((premiumamount / 1000) * 12).toFixed(2);
-    let tpdPremiumMonthly = (premiumamount / 1234).toFixed(2);
-    return { deathPremium: deathPremium, tpdPremiumMonthly: tpdPremiumMonthly };
+  calculateMonthlyPremium(monthlyPremiumInfo: any): Observable<any> {
+    let params = new HttpParams().set("sumInsured", +monthlyPremiumInfo.sumInsured)
+      .set("occupationRatingFactor", parseFloat(monthlyPremiumInfo.occupationRatingFactor))
+      .set("ageInYears", +monthlyPremiumInfo.ageInYears);
+    return this.http.get<any>(`${this.apiBaseUri}${this.calculateMonthlyPremiumApi}`, { params: params });
   }
 
   getMonthlyPremiumDefaultInfo() {
@@ -72,7 +50,7 @@ export class PremiumService {
       name: "",
       dateOfBirth: new Date(),
       dateOfBirthValue: "",
-      occupationRatingFactor: "0",
+      occupationRatingFactor: "Select",
       sumInsured: "",
       minDate: new Date(),
       maxDate: new Date(),

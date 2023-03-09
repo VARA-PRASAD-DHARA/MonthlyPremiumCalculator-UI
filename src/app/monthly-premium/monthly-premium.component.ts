@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { PremiumService } from '../premium.service';
+import { ToastrService } from '../toastr.service';
 
 @Component({
   selector: 'app-monthly-premium',
@@ -9,10 +10,9 @@ import { PremiumService } from '../premium.service';
 
 export class MonthlyPremiumComponent implements OnInit {
   occupationInfo: any = [];
-  ratingFactorInfo: any = [];
   monthlyPremiumInfo = {} as any;
 
-  constructor(private premiumService: PremiumService, private changeDetector: ChangeDetectorRef) {
+  constructor(private premiumService: PremiumService, private changeDetector: ChangeDetectorRef, private toastrService: ToastrService) {
     this.monthlyPremiumInfo = this.premiumService.getMonthlyPremiumDefaultInfo();
     this.setDateOfBirthMinMaxDates();
   }
@@ -25,8 +25,14 @@ export class MonthlyPremiumComponent implements OnInit {
   }
 
   getOccupationAndRefactorInfo() {
-    this.occupationInfo = this.premiumService.getOccupationInfo();
-    this.ratingFactorInfo = this.premiumService.getRatingFactorInfo();
+    this.occupationInfo = [];
+    this.premiumService.getOccupationFactorInfo().subscribe({
+      next: (result) => {
+        this.occupationInfo = result;
+        this.occupationInfo.unshift({ occupation: "Select", factor: "Select" });
+      },
+      error: (e) => console.error(e)
+    });
   }
 
   onDateOfBirthChange(dateOfBirth: any) {
@@ -38,18 +44,21 @@ export class MonthlyPremiumComponent implements OnInit {
   }
 
   onOccupationChange(event: any) {
-    let selectedRating = this.occupationInfo[event.target.selectedIndex].rating;
-    this.monthlyPremiumInfo.occupationRatingFactor = selectedRating === "0" ? "0" : this.ratingFactorInfo.find((r: any) => r.rating == selectedRating).factor;
+    this.monthlyPremiumInfo.occupationRatingFactor = this.occupationInfo[event.target.selectedIndex].factor;
     this.calculateMonthlyPremium();
   }
 
   calculateMonthlyPremium() {
     if (this.premiumService.isMonthlyPremiumFormValid(this.monthlyPremiumInfo)) {
-      let premium = this.premiumService.calculateMonthlyPremium(this.monthlyPremiumInfo);
-      this.monthlyPremiumInfo = { ...this.monthlyPremiumInfo, ...premium };
+      this.premiumService.calculateMonthlyPremium(this.monthlyPremiumInfo).subscribe({
+        next: (result) => {
+          this.monthlyPremiumInfo = { ...this.monthlyPremiumInfo, ...result };
+        },
+        error: (e) => console.error(e)
+      });
     }
     else {
-      alert("Please fill all required fields");
+      this.toastrService.error("Please fill all required fields");
     }
   }
 
