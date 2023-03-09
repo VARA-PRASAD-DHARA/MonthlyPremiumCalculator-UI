@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiPrefix: "https://localhost:44332/",
+  apiPrefix: "https://tal-api.azurewebsites.net/", // "https://localhost:44332/",
 };
 
 /*
