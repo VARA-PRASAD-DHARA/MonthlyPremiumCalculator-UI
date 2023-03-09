@@ -1,0 +1,33 @@
+.alert-width {
+    min-width: 300px;
+    max-width: 500px;
+    overflow: hidden;
+    line-height: 24px;
+  }
+  
+  .alert {
+    color: white !important;
+  }
+  
+  .close {
+    cursor: pointer;
+    padding-left: 15px;
+    color: white !important;
+  }
+  
+  .alert-danger {
+    background-color: #dd4b39 !important;
+  }
+  
+  .alert-success {
+    background-color: #008d4c !important;
+  }
+  
+  .alert-info {
+    background-color: #204d74 !important;
+  }
+  
+  .alert-warning {
+    background-color: #e08e0b !important;
+  }
+  
