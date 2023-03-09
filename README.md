@@ -14,18 +14,21 @@
 ## General info
 This is the TAL Test project to have the ability to choose various options on the screen so that I can view the monthly premiums calculated (based on the custom logic) and displayed on the screen based on Name,Date of Birth,,Occupation and Sum Insured.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
-	
 ## Technologies
-Project is created with:
+Frontend (UI) :
 * Angular : 15.2.1
 * Node : v18.14.2
 * Npm : 9.1.1
 * Bootstrap : 5.2.3
 * VS Code : 1.74.3
+
+Backend (API) :
+* .Net Core 5
+* C#
+* Rest API
 	
 ## Setup
-To run this project, install it locally using npm:
+For UI application, install it locally using npm:
 
 ```
     1. Node and NPM
@@ -40,20 +43,27 @@ To run this project, install it locally using npm:
         Install the latest version of Angular CLI using the below command :
         npm install -g @angular/cli
 ```
+For API, should have .Net Core and Visual Studio
 
 ## Run application in local
 ```
+For Angular UI application,
+
 Run `npm install` to prepare your environment
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+For .Net application, run the application using visual studio
+
 ```
-## Prod Build
+## Prod Build UI
 ```
 Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
 ```
 
-## Application deployed in Azure for DEMO
+## Application deployed in Azure for DEMO (both UI & API)
 ```
 https://tal-app.azurewebsites.net/
+
 ```
 ## Application Purpose
 
@@ -72,6 +82,8 @@ Develop a UI that accepts the below data and returns a monthly premium amount to
 
 ## Highlights
 
+Angular :
+
 * Application created with latest angular version 15.x
 * Bootstrap 5.2.1 for responsive design
 * Ngx-Boostrap 10.2.0 version for Date Picker component
@@ -81,3 +93,10 @@ Develop a UI that accepts the below data and returns a monthly premium amount to
 * Utilized CSS/SCSS well with reusability features and didn't have any inline-styles
 * Handled validations and uniform look & feel across the application
 * Deployed application in Azure for the DEMO purpose
+
+.Net Core :
+
+* Application is created with .Net Core 5 with C#
+* REST API architecture
+* Business logic written in service and repository has data
+* Implemented global exception handler middleware
