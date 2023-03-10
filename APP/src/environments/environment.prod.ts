@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiPrefix: "https://tal-app.azurewebsites.net/",
+  apiPrefix: "https://tal-api.azurewebsites.net/",
 };

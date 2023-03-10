@@ -6,8 +6,16 @@
 /out-tsc
 /bazel-out
 
+.angular/
+
+bin/
+obj/
+.suo
+*.config
+.dtbcache.v2
+
 # Node
-/node_modules
+node_modules
 npm-debug.log
 yarn-error.log
 

@@ -43,6 +43,16 @@ export class MonthlyPremiumComponent implements OnInit {
     this.monthlyPremiumInfo.dateOfBirthValue = dateOfBirth;
   }
 
+  onNameChange(event: any) {
+    this.monthlyPremiumInfo.deathPremium = "";
+    this.monthlyPremiumInfo.tpdPremiumMonthly = "";
+  }
+
+  onSumInsuredChange(event: any) {
+    this.monthlyPremiumInfo.deathPremium = "";
+    this.monthlyPremiumInfo.tpdPremiumMonthly = "";
+  }
+
   onOccupationChange(event: any) {
     this.monthlyPremiumInfo.occupationRatingFactor = this.occupationInfo[event.target.selectedIndex].factor;
     this.calculateMonthlyPremium();

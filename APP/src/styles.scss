@@ -51,6 +51,12 @@ label {
   float: right;
 }
 
+.align-center {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
 .badge-primary {
   background-color: #204d74 !important;
   border-color: #122b40 !important;
