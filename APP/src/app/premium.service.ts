@@ -19,7 +19,7 @@ export class PremiumService extends BaseService {
     var years = Math.floor(daysDiff / 365);
     var months = Math.floor(daysDiff % 365 / 30);
     var days = Math.floor(daysDiff % 365 % 30);
-    return this.getFormattedAge(" year", years) + this.getFormattedAge(" month", months) + this.getFormattedAge(" day", days);
+    return this.getFormattedAge("Y", years) + this.getFormattedAge("M", months) + this.getFormattedAge("D", days);
   }
 
   calculateAgeInYears(dateOfBirth: any) {
@@ -31,7 +31,7 @@ export class PremiumService extends BaseService {
   }
 
   getFormattedAge(word: any, count: any) {
-    return count > 0 ? (count + (count > 1 ? (word + "s") : word) + " ") : ""; // fomatted date in years, months and days
+    return count > 0 ? (count + word + " ") : ""; // fomatted date in years, months and days
   }
 
   isMonthlyPremiumFormValid(monthlyPremiumInfo: any) {

@@ -7,15 +7,25 @@
   font-weight: 600;
 }
 
-.monthly-premium-container {
-  padding-right: calc(var(--bs-gutter-x) * 5);
-  padding-left: calc(var(--bs-gutter-x) * 5);
+@media screen and (min-width : 769px) {
+  .monthly-premium-container {
+    padding-right: calc(var(--bs-gutter-x) * 6);
+    padding-left: calc(var(--bs-gutter-x) * 6);
+  }
+}
+
+.pr-10 {
+  padding-right: 10px;
 }
 
 .btn-reset {
   float: right;
   margin: 2px;
   border-radius: 10px;
+}
+
+.block {
+  display: block !important;
 }
 
 .btn-submit {
